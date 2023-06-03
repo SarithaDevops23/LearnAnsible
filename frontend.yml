@@ -1,12 +1,7 @@
-- name: set up webserver
+- name: set up Frontend
   hosts: all
   tasks: 
-    - name: ensure nginx is at the latest version
-      apt:
-        - name: nginx
-          state: latest
-    - name: start nginx
-      service: 
-        - name: nginx
-          state: started
-          enabled: yes  # if you want to also enable nginx
+    - name: Install the latest version nginx
+      ansible.builtin.yum:
+         name: nginx
+         state: latest
